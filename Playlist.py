@@ -14,12 +14,15 @@ class Playlist:
         print(self.__first_song._Song__title)
         return
     
+    print("adding new song")
     current = self.__first_song
     # while Current.next is not empty, make current = current.next
     while current._Song__next_song != None: 
         current = current._Song__next_song
     current._Song__next_song= Song(title)
-    print(current._Song__next_song)
+    current = current._Song__next_song
+    
+    print(current._Song__title)
 
 
     
@@ -81,12 +84,10 @@ my_playlist.length()
 print("")
 my_playlist.add_song(Song("Believer"))
 print("")
-my_playlist.length()
-print("")
+
 my_playlist.add_song(Song("Hotel California"))
 print("")
-my_playlist.length()
-print("")
-my_playlist.add_song(Song("Hotel Navada"))
+
+my_playlist.add_song(Song("Let it Go"))
 print("")
 my_playlist.length()
