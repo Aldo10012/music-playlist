@@ -8,9 +8,28 @@ class Playlist:
   # TODO: Create a method called add_song that creates a Song object and adds it to the playlist. This method has one parameter called title.
 
   def add_song(self, title):
-    next_song = self.__first_song
-    self.__first_song = Song(title)
-    self.__first_song.__next_song = next_song 
+    if (self.__first_song == None) :
+        print("no songs")
+        self.__first_song = Song(title)
+        print(self.__first_song._Song__title)
+    else:
+        print("more than 0 songs")
+        current = self.__first_song
+        while current != None:
+            current = current._Song__next_song
+        current= Song(title)
+        print(current._Song__title)
+    print("\n")
+
+
+    
+    
+
+    # print(self.__first_song)
+    # self.__first_song = Song(title)
+    # print(self.__first_song._Song__title)
+    
+
 
 
 
@@ -44,3 +63,8 @@ class Playlist:
 
   def print_songs(self):
     pass
+
+
+my_playlist = Playlist()
+my_playlist.add_song(Song("Believer"))
+my_playlist.add_song(Song("Hotel California"))
