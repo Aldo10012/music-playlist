@@ -9,21 +9,21 @@ class Playlist:
 
   def add_song(self, title):
     if (self.__first_song == None) :
-        print("no songs")
+        print("adding first song")
         self.__first_song = Song(title)
         print(self.__first_song._Song__title)
-    else:
-        print("more than 0 songs")
-        current = self.__first_song
-        while current != None:
-            current = current._Song__next_song
-        current= Song(title)
-        print(current._Song__title)
-    print("\n")
+        return
+    
+    current = self.__first_song
+    # while Current.next is not empty, make current = current.next
+    while current._Song__next_song != None: 
+        current = current._Song__next_song
+    current._Song__next_song= Song(title)
+    print(current._Song__next_song)
 
 
     
-    
+    # ...
 
     # print(self.__first_song)
     # self.__first_song = Song(title)
@@ -51,7 +51,17 @@ class Playlist:
   # TODO: Create a method called length, which returns the number of songs in the playlist.
 
   def length(self):
-    pass
+    if (self.__first_song == None) :
+        print("length: 0 songs")
+        return
+
+    count = 0
+    current = self.__first_song
+    while current != None:
+        count += 1
+        current = current._Song__next_song
+        
+    print(f"you have {count} songs")
 
 
   # TODO: Create a method called print_songs that prints a numbered list of the songs in the playlist.
@@ -66,5 +76,17 @@ class Playlist:
 
 
 my_playlist = Playlist()
+
+my_playlist.length()
+print("")
 my_playlist.add_song(Song("Believer"))
+print("")
+my_playlist.length()
+print("")
 my_playlist.add_song(Song("Hotel California"))
+print("")
+my_playlist.length()
+print("")
+my_playlist.add_song(Song("Hotel Navada"))
+print("")
+my_playlist.length()
