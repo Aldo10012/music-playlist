@@ -21,20 +21,8 @@ class Playlist:
         current = current._Song__next_song
     current._Song__next_song= Song(title)
     current = current._Song__next_song
-    
-    print(current._Song__title)
 
-
-    
-    # ...
-
-    # print(self.__first_song)
-    # self.__first_song = Song(title)
-    # print(self.__first_song._Song__title)
-    
-
-
-
+    print(current.get_title())
 
 
   # TODO: Create a method called find_song that searches for whether a song exits in the playlist and returns its index.
@@ -55,7 +43,7 @@ class Playlist:
 
   def length(self):
     if (self.__first_song == None) :
-        print("length: 0 songs")
+        print("you have 0 songs")
         return
 
     count = 0
@@ -75,12 +63,22 @@ class Playlist:
   # 3. Song Title 3
 
   def print_songs(self):
-    pass
+    if (self.__first_song == None) :
+        print("you don't have any songs")
+        return
+    
+    current = self.__first_song
+    count = 1
+    while current != None:
+      print(f"{count}. {current.get_title()}")
+      current = current._Song__next_song
+      count += 1
 
 
 my_playlist = Playlist()
 
 my_playlist.length()
+my_playlist.print_songs()
 print("")
 my_playlist.add_song(Song("Believer"))
 print("")
@@ -91,3 +89,4 @@ print("")
 my_playlist.add_song(Song("Let it Go"))
 print("")
 my_playlist.length()
+my_playlist.print_songs()
