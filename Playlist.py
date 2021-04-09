@@ -5,7 +5,6 @@ class Playlist:
     self.__first_song = None
 
 
-  # TODO: Create a method called add_song that creates a Song object and adds it to the playlist. This method has one parameter called title.
 
   def add_song(self, title):
     if (self.__first_song == None) :
@@ -25,9 +24,6 @@ class Playlist:
     print(current.get_title())
 
 
-  # TODO: Create a method called find_song that searches for whether a song exits in the playlist and returns its index.
-  # The method has one parameters, title, which is the title of the song to be searched for. If the song is found, return its index. Otherwise, return -1.
-
   def find_song(self, title):
     if (self.__first_song == None) :
         print("you don't have any songs :(")
@@ -37,7 +33,7 @@ class Playlist:
     current = self.__first_song
 
     while current != None:      
-      if f"{current.get_title()}" == f"Song Title: {title}":
+      if f"{current.get_title()}" == f"{title}":
         print(f"'{title}' is at index {index}")
         return
 
@@ -47,16 +43,12 @@ class Playlist:
     print("cound not find your song") 
       
 
-
-
-
-  # TODO: Create a method called remove_song that removes a song from the playlist. This method takes one parameter, title, which is the song that should be removed. 
-
   def remove_song(self, title):
     current = self.__first_song
 
     if f"{current.get_title()}" == title:
       print("remove")   
+      print(f"next song: {current.get_next_song()}")
       current = current.get_next_song()
 
     while current != None:
@@ -68,9 +60,6 @@ class Playlist:
       current = current._Song__next_song
     pass
 
-
-
-  # TODO: Create a method called length, which returns the number of songs in the playlist.
 
   def length(self):
     if (self.__first_song == None) :
@@ -87,12 +76,6 @@ class Playlist:
     return f"you have {count} songs"
 
 
-  # TODO: Create a method called print_songs that prints a numbered list of the songs in the playlist.
-
-  # Example:
-  # 1. Song Title 1
-  # 2. Song Title 2
-  # 3. Song Title 3
 
   def print_songs(self):
     if (self.__first_song == None) :
@@ -121,6 +104,7 @@ print("")
 
 my_playlist.add_song(Song("Let it Go"))
 print("")
+
 my_playlist.length()
 my_playlist.print_songs()
 
@@ -128,11 +112,14 @@ print("\nFIND SONG")
 my_playlist.find_song("Believer")
 
 print("\nREMOVE SONG")
-my_playlist.remove_song("Hotel California")
-my_playlist.print_songs()
-
 my_playlist.remove_song("Let it Go")
 my_playlist.print_songs()
 
-my_playlist.remove_song("Believer")
-my_playlist.print_songs()
+
+
+"""
+BUGS:
+
+1. find_song() isn't working anymore, fix it
+2. remove_song() isn't removing 1st song in list.
+"""
