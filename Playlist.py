@@ -47,9 +47,9 @@ class Playlist:
     current = self.__first_song
 
     if f"{current.get_title()}" == title:
-      print("remove")   
-      print(f"next song: {current.get_next_song()}")
-      current = current.get_next_song()
+      print("removed!")   
+      self.__first_song = current.get_next_song()
+      return
 
     while current != None:
       if f"{current.get_next_song()}" == title:
@@ -112,14 +112,9 @@ print("\nFIND SONG")
 my_playlist.find_song("Believer")
 
 print("\nREMOVE SONG")
+my_playlist.remove_song("Hotel California")
+my_playlist.remove_song("Believer")
 my_playlist.remove_song("Let it Go")
+print("")
 my_playlist.print_songs()
 
-
-
-"""
-BUGS:
-
-1. find_song() isn't working anymore, fix it
-2. remove_song() isn't removing 1st song in list.
-"""
