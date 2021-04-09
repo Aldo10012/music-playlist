@@ -21,7 +21,7 @@ class Song:
     
   def __str__(self):
     # print(f"You are listening to {self.__title}")
-    return f"Song Title: {self.__title} "
+    return f"Song Title: {self.__title}"
 
   def __repr__(self):
     # print(f"{self.__title} -> {self.__next_song}")

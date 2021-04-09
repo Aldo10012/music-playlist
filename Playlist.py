@@ -29,7 +29,25 @@ class Playlist:
   # The method has one parameters, title, which is the title of the song to be searched for. If the song is found, return its index. Otherwise, return -1.
 
   def find_song(self, title):
-    pass
+    if (self.__first_song == None) :
+        print("you don't have any songs :(")
+        return
+    
+    index = 0
+    current = self.__first_song
+
+    while current != None:      
+      if f"{current.get_title()}" == f"Song Title: {title}":
+        print(f"'{title}' is at index {index}")
+        return
+
+      index += 1
+      current = current._Song__next_song
+
+    print("cound not find your song")  
+      
+
+
 
 
   # TODO: Create a method called remove_song that removes a song from the playlist. This method takes one parameter, title, which is the song that should be removed. 
@@ -53,6 +71,7 @@ class Playlist:
         current = current._Song__next_song
         
     print(f"you have {count} songs")
+    return f"you have {count} songs"
 
 
   # TODO: Create a method called print_songs that prints a numbered list of the songs in the playlist.
@@ -79,6 +98,7 @@ my_playlist = Playlist()
 
 my_playlist.length()
 my_playlist.print_songs()
+my_playlist.find_song('Believer')
 print("")
 my_playlist.add_song(Song("Believer"))
 print("")
@@ -90,3 +110,6 @@ my_playlist.add_song(Song("Let it Go"))
 print("")
 my_playlist.length()
 my_playlist.print_songs()
+
+print("\nFIND SONG")
+my_playlist.find_song("Let it Go")
