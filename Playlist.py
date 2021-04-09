@@ -32,7 +32,7 @@ class Playlist:
     if (self.__first_song == None) :
         print("you don't have any songs :(")
         return
-    
+
     index = 0
     current = self.__first_song
 
@@ -44,7 +44,7 @@ class Playlist:
       index += 1
       current = current._Song__next_song
 
-    print("cound not find your song")  
+    print("cound not find your song") 
       
 
 
@@ -53,6 +53,19 @@ class Playlist:
   # TODO: Create a method called remove_song that removes a song from the playlist. This method takes one parameter, title, which is the song that should be removed. 
 
   def remove_song(self, title):
+    current = self.__first_song
+
+    if f"{current.get_title()}" == title:
+      print("remove")   
+      current = current.get_next_song()
+
+    while current != None:
+      if f"{current.get_next_song()}" == title:
+        print("removed!")
+        current.set_next_song(current.get_next_song().get_next_song()) 
+        return
+      
+      current = current._Song__next_song
     pass
 
 
@@ -112,4 +125,14 @@ my_playlist.length()
 my_playlist.print_songs()
 
 print("\nFIND SONG")
-my_playlist.find_song("Let it Go")
+my_playlist.find_song("Believer")
+
+print("\nREMOVE SONG")
+my_playlist.remove_song("Hotel California")
+my_playlist.print_songs()
+
+my_playlist.remove_song("Let it Go")
+my_playlist.print_songs()
+
+my_playlist.remove_song("Believer")
+my_playlist.print_songs()
