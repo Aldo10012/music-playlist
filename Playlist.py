@@ -35,7 +35,7 @@ class Playlist:
     while current != None:      
       if f"{current.get_title()}" == f"{title}":
         print(f"'{title}' is at index {index}")
-        return
+        return index
 
       index += 1
       current = current._Song__next_song
